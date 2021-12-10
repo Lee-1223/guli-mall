@@ -1,0 +1,29 @@
+# 为微服务分配端口
+server:
+  port: 9000
+
+
+# 配置数据库连接信息
+spring:
+  application:
+    name: guli-member
+  # 数据库连接
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://10.24.82.90/gulimall_ums?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+  # 注册中心
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+# 配置mybatis的xml文件的位置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml  # classpath后面的*表示，不仅扫面自己的classpath，也扫描所有依赖的classapth
+  # 选择使用主键自增，之后分库分表可能需要回来修改这里
+  global-config:
+    db-config:
+      id-type: auto
+
