@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>guli-mall</artifactId>
+        <groupId>com.ljl</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>gulimall-third-party</artifactId>
+    <description>项目中所有第三方的依赖</description>
+
+    <dependencies>
+        <!--父工程中包含springBoot, SpringCloud, SpringCloudAlibaba, junit, log4j-->
+        <!--common中包含mysql, web，nacos, 以及一些http, servlet相关的依赖-->
+        <dependency>
+            <groupId>com.ljl</groupId>
+            <artifactId>gulimall-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <!--排除数据库连接依赖，否则还得配置连接的url (不需要手动排除mysql的依赖) -->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--openfeign (common中不包含openFeign)-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--oss 由于只是该模块使用，其他模块不需要，所以不放在common模块中-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>
+            <version>2.1.0.RELEASE</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

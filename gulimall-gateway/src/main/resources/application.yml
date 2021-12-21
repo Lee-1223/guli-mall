@@ -32,6 +32,15 @@ spring:
             # localhost:88/api/product/** --> localhost:11000/product/**
             - RewritePath=/api/?(?<segment>.*), /$\{segment}
 
+        - id: oss_route
+          uri: lb://mall-third-party
+          predicates:
+            # 路径断言
+            - Path=/api/thirdparty/**
+          filters:
+            # localhost:88/api/thirdparty/** --> localhost:30000/**
+            - RewritePath=/api/thirdparty/?(?<segment>.*), /$\{segment}
+
         # 调整路由的顺序，越往上的越优先匹配
         - id: admin_route
           uri: lb://renren-fast

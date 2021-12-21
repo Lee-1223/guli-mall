@@ -13,6 +13,11 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    alicloud:
+      access-key: LTAI5tQ78WjhsmXDt5sV3V2e
+      secret-key: MqcnJIhYwSrGDtlG60OeEZJa72LsRd
+      oss:
+        endpoint: oss-cn-shenzhen.aliyuncs.com
 
 # 配置mybatis的xml文件的位置
 mybatis-plus:
